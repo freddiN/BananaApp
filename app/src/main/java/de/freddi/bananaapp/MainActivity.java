@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String LOGGING_TAG = "MainActivity";
 
-    //private UsersFragment m_fragmentUsers = new UsersFragment();
-    //private TransactionsFragment m_fragmentTransactions = new TransactionsFragment();
-    //private AccountFragment m_fragmentAccount = new AccountFragment();
-
     private ViewPager m_viewPager;
 
     private BottomNavigationView m_navigation;
@@ -169,8 +165,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     protected void onPostExecute(Void aVoid) {
                         super.onPostExecute(aVoid);
-                        //m_fragmentUsers.doUpdate("logout menu");
-                        //m_fragmentTransactions.doUpdate("logout menu");
+
                         refreshViews("logout menu");
                     }
                 }.execute();
@@ -290,8 +285,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void refreshViews(final String strSrc) {
         updateToolbar();
-        //m_fragmentUsers.doUpdate(strSrc);
-        //m_fragmentTransactions.doUpdate(strSrc);
 
         for (Fragment f: getSupportFragmentManager().getFragments()) {
             if (f instanceof UsersFragment) {
@@ -300,17 +293,6 @@ public class MainActivity extends AppCompatActivity {
                 ((TransactionsFragment)f).doUpdate(strSrc);
             }
         }
-
-/*
-        getSupportFragmentManager()
-                .beginTransaction()
-                .detach(m_fragmentAccount)
-                .commitNowAllowingStateLoss();
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .attach(m_fragmentAccount)
-                .commitAllowingStateLoss();*/
     }
 
     @Override
