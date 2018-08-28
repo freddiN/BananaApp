@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Account">
+
+        <EditTextPreference
+            android:key="account_token"
+            android:title="token"
+            android:summary="enter your token"
+            android:inputType="text"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Connection">
+
+        <EditTextPreference
+            android:key="connection_server"
+            android:title="server"
+            android:summary="format: https://ip:port/path/to/endpoint"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:key="connection_http_user"
+            android:title="HTTP auth user"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:key="connection_http_pass"
+            android:title="HTTP auth password"
+            android:inputType="textPassword"/>
+
+        <EditTextPreference
+            android:key="connection_timeout_connect"
+            android:title="connect timeout"
+            android:summary="in ms"
+            android:defaultValue="8000"
+            android:inputType="number"/>
+
+        <EditTextPreference
+            android:key="connection_timeout_read"
+            android:title="read timeout"
+            android:summary="in ms"
+            android:defaultValue="5000"
+            android:inputType="number"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Notifications">
+
+        <ListPreference
+            android:key="notifications_setting"
+            android:title="push notifications"
+            android:summary="receive a notification when bananas are sent"
+            android:entries="@array/notification_settings"
+            android:entryValues="@array/notification_settings"
+            android:defaultValue="none" />
+
+        <EditTextPreference
+            android:key="notifications_topic"
+            android:title="notifications topic"
+            android:summary="topic to subscribe to"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:key="notifications_style_title"
+            android:title="notifications style title"
+            android:summary="variables %from, %to and %comment supported"
+            android:defaultValue="New Banana!"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:key="notifications_style_text"
+            android:title="notifications style text"
+            android:summary="variables %from, %to and %comment supported"
+            android:defaultValue="From %from to %to"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:key="notifications_style_bigtext"
+            android:title="notifications style bigtext"
+            android:summary="variables %from, %to and %comment supported"
+            android:defaultValue="%comment"
+            android:inputType="text"/>
+
+        <Preference
+            android:key="notifications_style_testbutton"
+            android:title="test notification style"
+            android:summary="click to generate a test-notification using the above settings"/>
+
+        <EditTextPreference
+            android:key="notifications_firebase_token"
+            android:title="google firebase token"
+            android:summary=""
+            android:enabled="false"
+            android:inputType="text"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Other Settings">
+
+        <EditTextPreference
+            android:key="other_limit_transactions"
+            android:title="limit transactions"
+            android:summary="fetches only the latest x transactions (0=unlimited)"
+            android:defaultValue="100"
+            android:inputType="number"/>
+
+        <Preference
+            android:key="other_doze_intent"
+            android:title="open battery saver configuration"
+            android:summary="faster push messages when setting BananaApp to 'not optimized'"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Debug">
+
+        <SwitchPreference
+            android:key="debug_logging"
+            android:title="enable debug logging"
+            android:summary="log communication and exceptions"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

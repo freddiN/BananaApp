@@ -1,0 +1,30 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="transactions"
+        android:enabled="true"
+        android:icon="@drawable/ic_view_list_black_24dp"
+        android:shortcutShortLabel="@string/shortcutTransactionsLongLabel"
+        android:shortcutLongLabel="@string/shortcutTransactionsLongLabel">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="de.freddi.bananaapp"
+            android:targetClass="de.freddi.bananaapp.MainActivity" >
+            <extra android:name="goto" android:value="transactions" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="users"
+        android:enabled="true"
+        android:icon="@drawable/ic_banana"
+        android:shortcutShortLabel="@string/shortcutUsersLongLabel"
+        android:shortcutLongLabel="@string/shortcutUsersLongLabel">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="de.freddi.bananaapp"
+            android:targetClass="de.freddi.bananaapp.MainActivity" >
+            <extra android:name="goto" android:value="users" />
+        </intent>
+    </shortcut>
+
+</shortcuts>

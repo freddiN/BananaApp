@@ -1,0 +1,5 @@
+<resources>
+    <string name="shortcutUsersLongLabel">Users</string>
+    <string name="shortcutTransactionsLongLabel">Transactions</string>
+    <string name="shortcutAccountLongLabel">Account</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notification_settings">
+        <item>none</item>
+        <item>to me</item>
+        <item>all transactions</item>
+    </string-array>
+</resources>
