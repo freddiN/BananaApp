@@ -8,17 +8,28 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.freddi.bananaapp.R;
+import de.freddi.bananaapp.logging.L;
 import de.freddi.bananaapp.settings.Preferences;
 import de.freddi.bananaapp.settings.Preferences.PREF;
 
 public class AccountFragment extends Fragment {
+    private static final String LOGGING_TAG = "AccountFragment";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragmentAccountView = inflater.inflate(R.layout.fragment_account, container, false);
 
         GuiHelper.configurePullToRefresh(fragmentAccountView, R.id.text_account_swipe, getActivity());
 
+        doUpdate("onCreateView", fragmentAccountView);
+
+        return fragmentAccountView;
+    }
+
+    public void doUpdate(final String strSrc, final View view) {
         final Preferences prefs = new Preferences();
+
+        L.log(LOGGING_TAG, "doUpdate src=" + strSrc, prefs);
 
         final int nEmojiBanana = 0x1F34C;
 
@@ -37,9 +48,10 @@ public class AccountFragment extends Fragment {
         buff.append(String.format(" Token expiration: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_EXPIRATION)));
         buff.append(String.format(" Token duration: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_DURATION)));
 
-        final TextView textAccountsView = fragmentAccountView.findViewById(R.id.id_account_text);
-        textAccountsView.setText(buff.toString());
-
-        return fragmentAccountView;
+        if (view == null && getView() != null) {
+            ((TextView)getView().findViewById(R.id.id_account_text)).setText(buff.toString());
+        } else if (view != null){
+            ((TextView)view.findViewById(R.id.id_account_text)).setText(buff.toString());
+        }
     }
 }

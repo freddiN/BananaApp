@@ -305,7 +305,19 @@ public class MainActivity extends AppCompatActivity {
                 ((UsersFragment)f).doUpdate(strSrc);
             } else if (f instanceof TransactionsFragment) {
                 ((TransactionsFragment)f).doUpdate(strSrc);
+            } else if (f instanceof AccountFragment) {
+                ((AccountFragment)f).doUpdate(strSrc, null);
             }
+        }
+    }
+
+    private void checkForFirebase() {
+        final Preferences pref = new Preferences();
+        L.log(LOGGING_TAG, "checkForFirebase", pref);
+
+        if (StringUtils.equalsIgnoreCase(pref.getAsString(PREF.STATE_FIREBASE_RECEIVED), "true")) {
+            L.log(LOGGING_TAG, "checkForFirebase refresh triggered", pref);
+            performRefresh("checkForFirebase");
         }
     }
 
@@ -321,16 +333,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         checkForFirebase();
-    }
-
-    private void checkForFirebase() {
-        final Preferences pref = new Preferences();
-        L.log(LOGGING_TAG, "checkForFirebase", pref);
-
-        if (StringUtils.equalsIgnoreCase(pref.getAsString(PREF.STATE_FIREBASE_RECEIVED), "true")) {
-            L.log(LOGGING_TAG, "checkForFirebase refresh triggered", pref);
-            performRefresh("checkForFirebase");
-        }
     }
 
     @Override

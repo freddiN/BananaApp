@@ -43,7 +43,7 @@ public class TransactionsFragment extends Fragment {
                 m_listTransactions.clear();
                 m_listTransactions.addAll(dbTransactions);
                 m_listAdapter.notifyDataSetChanged();
-                L.log(LOGGING_TAG, "notifyDataSetChanged", isDebug);
+                L.log(LOGGING_TAG, "doUpdate done", isDebug);
             }
         });
     }
