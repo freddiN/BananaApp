@@ -1,6 +1,9 @@
 package de.freddi.bananaapp;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -39,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView m_navigation;
     private MenuItem prevMenuItem;
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            L.log(LOGGING_TAG, "onReceive", new Preferences());
+            performRefresh("firebase");
+        }
+    };
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
@@ -134,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         new AsyncFirebaseRegister().execute();
+
+        registerReceiver(mMessageReceiver, new IntentFilter("FIREBASE_NOTIFICATION"));
     }
 
     @Override
@@ -279,6 +292,7 @@ public class MainActivity extends AppCompatActivity {
             protected void onPostExecute(final Boolean isSuccess) {
                 super.onPostExecute(isSuccess);
                 refreshViews(strSrc);
+                new Preferences().set(PREF.STATE_FIREBASE_RECEIVED, "");
             }
         }.execute();
     }
@@ -302,14 +316,27 @@ public class MainActivity extends AppCompatActivity {
         checkForFirebase();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        checkForFirebase();
+    }
+
     private void checkForFirebase() {
         final Preferences pref = new Preferences();
         L.log(LOGGING_TAG, "checkForFirebase", pref);
 
         if (StringUtils.equalsIgnoreCase(pref.getAsString(PREF.STATE_FIREBASE_RECEIVED), "true")) {
-            pref.set(PREF.STATE_FIREBASE_RECEIVED, "");
             L.log(LOGGING_TAG, "checkForFirebase refresh triggered", pref);
             performRefresh("checkForFirebase");
         }
+    }
+
+    @Override
+    protected void onDestroy () {
+        unregisterReceiver(mMessageReceiver);
+
+        super.onDestroy ();
     }
 }

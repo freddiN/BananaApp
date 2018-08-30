@@ -1,5 +1,7 @@
 package de.freddi.bananaapp.notification.firebase;
 
+import android.content.Intent;
+
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -42,6 +44,11 @@ public class FirebaseReceiver extends FirebaseMessagingService {
             }
 
             pref.set(Preferences.PREF.STATE_FIREBASE_RECEIVED, "true");
+
+            Intent broadcast = new Intent();
+            broadcast.setAction("FIREBASE_NOTIFICATION");
+            sendBroadcast(broadcast);
+            L.log(LOGGING_TAG, "onMessageReceived broadcast sent", new Preferences());
         }
     }
 
