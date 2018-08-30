@@ -1,0 +1,20 @@
+Datenschutz
+
+Nutzung von personenbezogene Daten
+Diese App dient vornehmlich zur Anzeige von Daten des Servers (Stand der Bananenaccounts der Teilnehmer), es koennen aber auch neue Transaktionen zwischen Teilnehmern erstellt werden.
+Pesonenbezogene Daten sind hier der Anzeigename und der LDAP Username. IP Adressen, Standortdaten, Geraetekennung usw. werden nicht verarbeitet.
+Der eigene LDAP Name wird nur in der eigenen Account Uebersicht angezeigt, der Anzegename ist von und fuer alle Teilnehmer sichtbar.
+Die Daten werden nur mit dem Server ausgetauscht und nicht an Dritte weitergereicht.
+Alle Daten werden verschluesselt uebertragen sobald eine https Verbindung in den Einstellungen konfiguriert wird.
+Sollte die Debug Funktion "enable debug logging" in den Einstellungen akiviert werden, wird die gesamte Kommunikation in die Debugdaei geschrieben. Diese enthaelt zu keinem
+Zeitpunkt Passwoerter, die Authentifizierung erfolgt ausschliesslich ueber temporaere Tokens.
+
+Betreiber der App
+Frederik Netterdon, frederik punkt netterdon at gmail punkt com
+
+Erklaerung der Zugriffsrechte
+INTERNET - Fuer die Kommunikation mit dem Server ueber das Internet
+CAMERA - Fuer die QRCode-Scannen Funktionalitaet (optional)
+WRITE_EXTERNAL_STORAGE - Logfile bei aktiviertem Debugmodus (optional)
+
+Stand: 18.07.2018
