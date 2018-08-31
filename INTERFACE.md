@@ -234,7 +234,7 @@ Invalidiert den Token
 }
 ```
 
-BANANA_RAIN
+### BANANA_RAIN
 
 #### Request
 ```
@@ -258,7 +258,7 @@ BANANA_RAIN
 ```
 
 
-EDIT_TRANSACTION
+### EDIT_TRANSACTION
 
 #### Request
 ```
