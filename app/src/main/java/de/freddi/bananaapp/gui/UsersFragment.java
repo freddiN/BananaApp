@@ -158,7 +158,7 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
                     super.onPostExecute(isSuccess);
 
                     if (isSuccess) {
-                        GuiHelper.doSnack(getActivity(), "Successfull");
+                        GuiHelper.doSnack(getActivity(), "Successful");
 
                         ((MainActivity) getActivity()).performRefresh("send banana");
                     } else {
