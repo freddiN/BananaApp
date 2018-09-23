@@ -107,6 +107,7 @@ public class HTTPConnector {
                     dbTransaction.to_user = json.getString("to_user");
                     dbTransaction.comment = json.getString("comment");
                     dbTransaction.source = json.getString("source");
+                    dbTransaction.source = json.getString("category");
                     listTransactions.add(dbTransaction);
                 }
                 App.get().getDB().databaseInterface().insertAllTransactions(listTransactions);
@@ -167,7 +168,7 @@ public class HTTPConnector {
      * @param strComment               banana comment
      * @return true = success
      */
-    public static boolean sendBananas(final String strTargetUserDisplayName, final String strComment) {
+    public static boolean sendBananas(final String strTargetUserDisplayName, final String strComment, final String strCategory) {
         final boolean isDebug = new Preferences().isDebugLogging();
 
         if (hasInvalidToken()) {
@@ -180,6 +181,7 @@ public class HTTPConnector {
             jsonTransaction.put("to_user", strTargetUserDisplayName);
             jsonTransaction.put("banana_count", 1);
             jsonTransaction.put("comment", strComment);
+            jsonTransaction.put("category", strCategory);
         } catch (final JSONException e) {
             if (isDebug) {
                 e.printStackTrace();

@@ -5,4 +5,11 @@
         <item>to me</item>
         <item>all transactions</item>
     </string-array>
+
+    <string-array name="categories">
+        <item>cat a</item>
+        <item>cat b</item>
+        <item>cat c</item>
+        <item>cat d</item>
+    </string-array>
 </resources>

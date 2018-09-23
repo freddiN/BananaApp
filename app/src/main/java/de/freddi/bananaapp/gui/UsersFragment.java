@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -152,6 +153,9 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
                 return;
             }
 
+            final Spinner spinnerCategory = dialogView.findViewById(R.id.bananadCategory);
+            final String strCategory = String.valueOf(spinnerCategory.getSelectedItem());
+
             new SendBanana() {
                 @Override
                 protected void onPostExecute(Boolean isSuccess) {
@@ -165,7 +169,7 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
                         GuiHelper.doSnack(getActivity(), "Error");
                     }
                 }
-            }.execute(selectedUser.display_name, strComment);
+            }.execute(selectedUser.display_name, strComment, strCategory);
 
             sendDialog.dismiss();
         });

@@ -23,4 +23,7 @@ public class DBTransaction {
 
     @ColumnInfo(name = "source")
     public String source;
+
+    @ColumnInfo(name = "category")
+    public String category;
 }

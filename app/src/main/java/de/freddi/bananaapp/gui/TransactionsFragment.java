@@ -87,7 +87,12 @@ public class TransactionsFragment extends Fragment {
                     text1.setText(String.format("%s %s %s %s", t.timestamp, t.from_user, GuiHelper.getEmojiByUnicode(0x27A1), t.to_user));
                     setTextTextColor(text1, t.source);
 
-                    text2.setText(Html.fromHtml(t.comment));
+                    String strCategory = "";
+                    if (StringUtils.isNotBlank(t.category)) {
+                        strCategory = "\n(" + t.category + ")";
+                    }
+
+                    text2.setText(String.format("%s%s", Html.fromHtml(t.comment), strCategory));
 
                     final String strCurrentUser = new Preferences().getAsString(PREF.ACCOUNT_DISPLAYNAME);
                     if (StringUtils.equalsIgnoreCase(t.from_user, strCurrentUser) || StringUtils.equalsIgnoreCase(t.to_user, strCurrentUser)) {

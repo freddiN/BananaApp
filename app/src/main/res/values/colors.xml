@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
@@ -9,7 +9,7 @@
     <color name="webpage">#000066</color>
     <color name="app">#336600</color>
 
-    <color name="selection">#FFFFCC</color>
+    <color name="selection">#ffffcc</color>
     <color name="selection_bananarain">#e6ffe6</color>
 
 </resources>
