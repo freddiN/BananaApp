@@ -7,9 +7,10 @@
     </string-array>
 
     <string-array name="categories">
-        <item>cat a</item>
-        <item>cat b</item>
-        <item>cat c</item>
-        <item>cat d</item>
+        <item>Other (performance related)</item>
+        <item>Work together better</item>
+        <item>Put the customer at the heart of all we do</item>
+        <item>Speed up and simplify</item>
+        <item>Explore and nurture new opportunities</item>
     </string-array>
 </resources>
