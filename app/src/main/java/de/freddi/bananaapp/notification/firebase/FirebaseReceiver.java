@@ -36,7 +36,7 @@ public class FirebaseReceiver extends FirebaseMessagingService {
             final String strComment = remoteMessage.getData().get("comment");
             final String strSubtopic = remoteMessage.getData().get("subtopic");
 
-            final boolean bAllow = NotificationHelper.allowNotification(strTo, strSubtopic);
+            final boolean bAllow = NotificationHelper.allowNotification(strFrom, strTo, strSubtopic);
             L.log(LOGGING_TAG, "allowNotification result: " + bAllow, bIsDebug);
 
             if (bAllow) {

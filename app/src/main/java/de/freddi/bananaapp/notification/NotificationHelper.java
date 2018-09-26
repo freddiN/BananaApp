@@ -26,12 +26,17 @@ public class NotificationHelper {
     /**
      * none, to me, all transactions
      */
-    public static boolean allowNotification(final String strTo, final String strTopic) {
+    public static boolean allowNotification(final String strFrom, final String strTo, final String strTopic) {
         final Preferences prefs = new Preferences();
         final boolean bIsDebugging = prefs.isDebugLogging();
 
         if (StringUtils.isBlank(prefs.getAsString(PREF.ACCOUNT_TOKEN))) {
             L.log(LOGGING_TAG, "allowNotification isLoginOk false", bIsDebugging);
+            return false;
+        }
+
+        if (strFrom.equalsIgnoreCase(prefs.getAsString(PREF.ACCOUNT_DISPLAYNAME))) {
+            L.log(LOGGING_TAG, "allowNotification not my own bananas false", bIsDebugging);
             return false;
         }
 
