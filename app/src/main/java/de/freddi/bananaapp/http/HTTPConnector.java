@@ -55,9 +55,9 @@ public class HTTPConnector {
                     jsonUser = arr.getJSONObject(i);
 
                     dbUser = new DBUser();
-                    dbUser.display_name = jsonUser.getString("display_name");
-                    dbUser.bananas_to_spend = jsonUser.getInt("bananas_to_spend");
-                    dbUser.bananas_received = jsonUser.getInt("bananas_received");
+                    dbUser.display_name = jsonUser.optString("display_name");
+                    dbUser.bananas_to_spend = jsonUser.optInt("bananas_to_spend");
+                    dbUser.bananas_received = jsonUser.optInt("bananas_received");
                     listUsers.add(dbUser);
                 }
                 App.get().getDB().databaseInterface().insertAllUsers(listUsers);
@@ -102,12 +102,13 @@ public class HTTPConnector {
                 for (int i = 0; i < arr.length(); i++) {
                     json = arr.getJSONObject(i);
                     dbTransaction = new DBTransaction();
-                    dbTransaction.timestamp = json.getString("timestamp");
-                    dbTransaction.from_user = json.getString("from_user");
-                    dbTransaction.to_user = json.getString("to_user");
-                    dbTransaction.comment = json.getString("comment");
-                    dbTransaction.source = json.getString("source");
-                    dbTransaction.source = json.getString("category");
+                    dbTransaction.timestamp = json.optString("timestamp");
+                    dbTransaction.from_user = json.optString("from_user");
+                    dbTransaction.to_user = json.optString("to_user");
+                    dbTransaction.comment = json.optString("comment");
+                    dbTransaction.source = json.optString("source");
+                    dbTransaction.category = json.optString("category");
+
                     listTransactions.add(dbTransaction);
                 }
                 App.get().getDB().databaseInterface().insertAllTransactions(listTransactions);
@@ -140,14 +141,14 @@ public class HTTPConnector {
                 if (arr.length() > 0) {
                     JSONObject jsonUser = arr.getJSONObject(0);
 
-                    prefs.set(Preferences.PREF.ACCOUNT_TOKEN_EXPIRATION, jsonUser.getString("token_expiration_timestamp"));
-                    prefs.set(Preferences.PREF.ACCOUNT_TOKEN_DURATION, jsonUser.getString("token_duration"));
-                    prefs.set(Preferences.PREF.ACCOUNT_IS_ADMIN, jsonUser.getString("is_admin"));
-                    prefs.set(Preferences.PREF.ACCOUNT_AD_USER, jsonUser.getString("ad_user"));
-                    prefs.set(Preferences.PREF.ACCOUNT_DISPLAYNAME, jsonUser.getString("display_name"));
-                    prefs.set(Preferences.PREF.ACCOUNT_ID, jsonUser.getString("id"));
-                    prefs.set(Preferences.PREF.ACCOUNT_BANANAS_TO_SPEND, jsonUser.getString("bananas_to_spend"));
-                    prefs.set(Preferences.PREF.ACCOUNT_BANANAS_RECEIVED, jsonUser.getString("bananas_received"));
+                    prefs.set(Preferences.PREF.ACCOUNT_TOKEN_EXPIRATION, jsonUser.optString("token_expiration_timestamp"));
+                    prefs.set(Preferences.PREF.ACCOUNT_TOKEN_DURATION, jsonUser.optString("token_duration"));
+                    prefs.set(Preferences.PREF.ACCOUNT_IS_ADMIN, jsonUser.optString("is_admin"));
+                    prefs.set(Preferences.PREF.ACCOUNT_AD_USER, jsonUser.optString("ad_user"));
+                    prefs.set(Preferences.PREF.ACCOUNT_DISPLAYNAME, jsonUser.optString("display_name"));
+                    prefs.set(Preferences.PREF.ACCOUNT_ID, jsonUser.optString("id"));
+                    prefs.set(Preferences.PREF.ACCOUNT_BANANAS_TO_SPEND, jsonUser.optString("bananas_to_spend"));
+                    prefs.set(Preferences.PREF.ACCOUNT_BANANAS_RECEIVED, jsonUser.optString("bananas_received"));
 
                     return true;
                 }
