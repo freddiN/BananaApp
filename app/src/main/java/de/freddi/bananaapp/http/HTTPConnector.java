@@ -58,6 +58,7 @@ public class HTTPConnector {
                     dbUser.display_name = jsonUser.optString("display_name");
                     dbUser.bananas_to_spend = jsonUser.optInt("bananas_to_spend");
                     dbUser.bananas_received = jsonUser.optInt("bananas_received");
+                    dbUser.team_name = jsonUser.optString("team_name");
                     listUsers.add(dbUser);
                 }
                 App.get().getDB().databaseInterface().insertAllUsers(listUsers);
@@ -141,14 +142,15 @@ public class HTTPConnector {
                 if (arr.length() > 0) {
                     JSONObject jsonUser = arr.getJSONObject(0);
 
-                    prefs.set(Preferences.PREF.ACCOUNT_TOKEN_EXPIRATION, jsonUser.optString("token_expiration_timestamp"));
-                    prefs.set(Preferences.PREF.ACCOUNT_TOKEN_DURATION, jsonUser.optString("token_duration"));
-                    prefs.set(Preferences.PREF.ACCOUNT_IS_ADMIN, jsonUser.optString("is_admin"));
-                    prefs.set(Preferences.PREF.ACCOUNT_AD_USER, jsonUser.optString("ad_user"));
-                    prefs.set(Preferences.PREF.ACCOUNT_DISPLAYNAME, jsonUser.optString("display_name"));
-                    prefs.set(Preferences.PREF.ACCOUNT_ID, jsonUser.optString("id"));
-                    prefs.set(Preferences.PREF.ACCOUNT_BANANAS_TO_SPEND, jsonUser.optString("bananas_to_spend"));
-                    prefs.set(Preferences.PREF.ACCOUNT_BANANAS_RECEIVED, jsonUser.optString("bananas_received"));
+                    prefs.set(PREF.ACCOUNT_TOKEN_EXPIRATION, jsonUser.optString("token_expiration_timestamp"));
+                    prefs.set(PREF.ACCOUNT_TOKEN_DURATION, jsonUser.optString("token_duration"));
+                    prefs.set(PREF.ACCOUNT_IS_ADMIN, jsonUser.optString("is_admin"));
+                    prefs.set(PREF.ACCOUNT_AD_USER, jsonUser.optString("ad_user"));
+                    prefs.set(PREF.ACCOUNT_DISPLAYNAME, jsonUser.optString("display_name"));
+                    prefs.set(PREF.ACCOUNT_ID, jsonUser.optString("id"));
+                    prefs.set(PREF.ACCOUNT_BANANAS_TO_SPEND, jsonUser.optString("bananas_to_spend"));
+                    prefs.set(PREF.ACCOUNT_BANANAS_RECEIVED, jsonUser.optString("bananas_received"));
+                    prefs.set(PREF.ACCOUNT_TEAM_NAME, jsonUser.optString("team_name"));
 
                     return true;
                 }
@@ -208,15 +210,16 @@ public class HTTPConnector {
         final ConnectorResponse response = generateAndSend("logout", null);
         if (response.hasStatusOk()) {
             Preferences prefs = new Preferences();
-            prefs.set(Preferences.PREF.ACCOUNT_TOKEN, "");
-            prefs.set(Preferences.PREF.ACCOUNT_TOKEN_EXPIRATION, "");
-            prefs.set(Preferences.PREF.ACCOUNT_TOKEN_DURATION, "");
-            prefs.set(Preferences.PREF.ACCOUNT_IS_ADMIN, "");
-            prefs.set(Preferences.PREF.ACCOUNT_AD_USER, "");
-            prefs.set(Preferences.PREF.ACCOUNT_DISPLAYNAME, "");
-            prefs.set(Preferences.PREF.ACCOUNT_ID, "");
-            prefs.set(Preferences.PREF.ACCOUNT_BANANAS_TO_SPEND, "");
-            prefs.set(Preferences.PREF.ACCOUNT_BANANAS_RECEIVED, "");
+            prefs.set(PREF.ACCOUNT_TOKEN, "");
+            prefs.set(PREF.ACCOUNT_TOKEN_EXPIRATION, "");
+            prefs.set(PREF.ACCOUNT_TOKEN_DURATION, "");
+            prefs.set(PREF.ACCOUNT_IS_ADMIN, "");
+            prefs.set(PREF.ACCOUNT_AD_USER, "");
+            prefs.set(PREF.ACCOUNT_DISPLAYNAME, "");
+            prefs.set(PREF.ACCOUNT_ID, "");
+            prefs.set(PREF.ACCOUNT_BANANAS_TO_SPEND, "");
+            prefs.set(PREF.ACCOUNT_BANANAS_RECEIVED, "");
+            prefs.set(PREF.ACCOUNT_TEAM_NAME, "");
         }
 
         return response.hasStatusOk();

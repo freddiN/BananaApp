@@ -35,6 +35,7 @@ public class AccountFragment extends Fragment {
 
         StringBuilder buff = new StringBuilder();
         buff.append(String.format(" User: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_DISPLAYNAME)));
+        buff.append(String.format(" Team: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TEAM_NAME)));
         buff.append(String.format(" Bananas to spend: %s %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_BANANAS_TO_SPEND), GuiHelper.getEmojiByUnicode(nEmojiBanana)));
         buff.append(String.format(" Bananas received: %s %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_BANANAS_RECEIVED), GuiHelper.getEmojiByUnicode(nEmojiBanana)));
         buff.append("\n");

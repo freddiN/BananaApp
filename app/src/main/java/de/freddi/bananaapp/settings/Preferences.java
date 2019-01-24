@@ -22,6 +22,7 @@ public class Preferences {
         ACCOUNT_IS_ADMIN("account_is_admin"),
         ACCOUNT_AD_USER("account_ad_user"),
         ACCOUNT_ID("account_id"),
+        ACCOUNT_TEAM_NAME("team_name"),
 
         CONNECTION_SERVER("connection_server"),
         CONNECTION_HTTP_USER("connection_http_user"),

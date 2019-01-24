@@ -17,4 +17,7 @@ public class DBUser {
 
     @ColumnInfo(name = "bananas_received")
     public int bananas_received;
+
+    @ColumnInfo(name = "team_name")
+    public String team_name;
 }

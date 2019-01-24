@@ -102,7 +102,8 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
                     }
 
                     TextView text1 = renderer.findViewById(android.R.id.text1);
-                    text1.setText(String.format(Locale.GERMANY, "%s (%d / %d)", strUser, m_listUsers.get(position).bananas_to_spend, m_listUsers.get(position).bananas_received));
+                    //text1.setText(String.format(Locale.GERMANY, "%s (%d / %d)", strUser, m_listUsers.get(position).bananas_to_spend, m_listUsers.get(position).bananas_received));
+                    text1.setText(String.format(Locale.GERMANY, "%s (%s)", strUser, m_listUsers.get(position).team_name));
                     return renderer;
                 }
             };
