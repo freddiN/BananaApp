@@ -1,6 +1,7 @@
 package de.freddi.bananaapp.gui;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ public class AccountFragment extends Fragment {
     private static final String LOGGING_TAG = "AccountFragment";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragmentAccountView = inflater.inflate(R.layout.fragment_account, container, false);
 
         GuiHelper.configurePullToRefresh(fragmentAccountView, R.id.text_account_swipe, getActivity());

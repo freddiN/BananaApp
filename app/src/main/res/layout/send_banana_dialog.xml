@@ -31,10 +31,9 @@
     </android.support.design.widget.TextInputLayout>
 
     <Spinner
-        android:id="@+id/bananadCategory"
+        android:id="@+id/bananaCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:entries="@array/categories" />
 
     <ImageButton

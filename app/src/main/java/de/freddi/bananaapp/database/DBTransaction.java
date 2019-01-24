@@ -8,15 +8,15 @@ import android.support.annotation.NonNull;
 public class DBTransaction {
     @ColumnInfo(name = "timestamp")
     @NonNull
-    public String timestamp;
+    public String timestamp = "";
 
     @ColumnInfo(name = "from_user")
     @NonNull
-    public String from_user;
+    public String from_user = "";
 
     @ColumnInfo(name = "to_user")
     @NonNull
-    public String to_user;
+    public String to_user = "";
 
     @ColumnInfo(name = "comment")
     public String comment;

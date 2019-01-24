@@ -23,6 +23,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import de.freddi.bananaapp.App;
 import de.freddi.bananaapp.MainActivity;
@@ -96,7 +97,7 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
 
                     final String strUser = m_listUsers.get(position).display_name;
                     if (strUser.equalsIgnoreCase(new Preferences().getAsString(PREF.ACCOUNT_DISPLAYNAME))) {
-                        renderer.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.selection));
+                        renderer.setBackgroundColor(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.selection));
                     } else {
                         renderer.setBackgroundColor(Color.WHITE);
                     }
@@ -147,14 +148,14 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
 
         final ImageButton buttonBanana = dialogView.findViewById(R.id.bananaSendButton);
         buttonBanana.setOnClickListener(v -> {
-            final String strComment = txtComment.getText().toString().trim();
+            final String strComment = Objects.requireNonNull(txtComment.getText()).toString().trim();
 
             if (strComment.length() < 5) {
                 GuiHelper.doToast(getActivity(), "Please provide at least a short comment (min. 5 chars)");
                 return;
             }
 
-            final Spinner spinnerCategory = dialogView.findViewById(R.id.bananadCategory);
+            final Spinner spinnerCategory = dialogView.findViewById(R.id.bananaCategory);
             final String strCategory = String.valueOf(spinnerCategory.getSelectedItem());
 
             new SendBanana() {

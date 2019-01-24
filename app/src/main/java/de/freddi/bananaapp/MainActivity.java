@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView m_navigation;
     private MenuItem prevMenuItem;
 
-    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             L.log(LOGGING_TAG, "onReceive", new Preferences());
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void updateToolbar() {
+    private void updateToolbar() {
         final Preferences prefs = new Preferences();
 
         final String strUsername = prefs.getAsString(PREF.ACCOUNT_DISPLAYNAME);

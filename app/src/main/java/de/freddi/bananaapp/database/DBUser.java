@@ -10,7 +10,7 @@ public class DBUser {
     @PrimaryKey
     @ColumnInfo(name = "display_name")
     @NonNull
-    public String display_name;
+    public String display_name = "";
 
     @ColumnInfo(name = "bananas_to_spend")
     public int bananas_to_spend;

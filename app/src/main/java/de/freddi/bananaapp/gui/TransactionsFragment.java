@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import de.freddi.bananaapp.App;
 import de.freddi.bananaapp.R;
@@ -96,9 +97,9 @@ public class TransactionsFragment extends Fragment {
 
                     final String strCurrentUser = new Preferences().getAsString(PREF.ACCOUNT_DISPLAYNAME);
                     if (StringUtils.equalsIgnoreCase(t.from_user, strCurrentUser) || StringUtils.equalsIgnoreCase(t.to_user, strCurrentUser)) {
-                        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.selection));
+                        view.setBackgroundColor(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.selection));
                     } else if (StringUtils.equalsIgnoreCase(t.source, "rain")) {
-                        view.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.selection_bananarain));
+                        view.setBackgroundColor(ContextCompat.getColor(Objects.requireNonNull(getActivity()), R.color.selection_bananarain));
                     } else {
                         view.setBackgroundColor(Color.WHITE);
                     }

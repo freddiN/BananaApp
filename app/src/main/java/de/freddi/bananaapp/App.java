@@ -26,7 +26,9 @@ public class App extends Application  {
 
         database = Room.databaseBuilder(getApplicationContext(), LocalDatabase.class, DATABASE_NAME)
                 .fallbackToDestructiveMigration()
-                .addMigrations(FROM_1_TO_2).build();
+                .addMigrations(FROM_1_TO_2)
+                .addMigrations(FROM_2_TO_3)
+                .build();
 
         INSTANCE = this;
     }
@@ -39,11 +41,18 @@ public class App extends Application  {
         return PreferenceManager.getDefaultSharedPreferences(this);
     }
 
-    static final Migration FROM_1_TO_2 = new Migration(1, 2) {
+    private static final Migration FROM_1_TO_2 = new Migration(1, 2) {
         @Override
         public void migrate(final SupportSQLiteDatabase database)
         {
             database.execSQL("ALTER TABLE DBTransaction ADD category TEXT");
+        }
+    };
+
+    private static final Migration FROM_2_TO_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(final SupportSQLiteDatabase database)
+        {
         }
     };
 }

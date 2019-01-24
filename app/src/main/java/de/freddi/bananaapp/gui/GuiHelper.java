@@ -71,7 +71,7 @@ public class GuiHelper {
      * for the emoji display
      *
      * @param nUnicode e.g. 0x1F34C
-     * @return
+     * @return Emoji
      */
     public static String getEmojiByUnicode(final int nUnicode){
         return new String(Character.toChars(nUnicode));
