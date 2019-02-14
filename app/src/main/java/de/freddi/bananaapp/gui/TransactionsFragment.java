@@ -94,6 +94,7 @@ public class TransactionsFragment extends Fragment {
                     }
 
                     text2.setText(String.format("%s%s", Html.fromHtml(t.comment), strCategory));
+                    text2.setTextColor(Color.parseColor("#000000"));
 
                     final String strCurrentUser = new Preferences().getAsString(PREF.ACCOUNT_DISPLAYNAME);
                     if (StringUtils.equalsIgnoreCase(t.from_user, strCurrentUser) || StringUtils.equalsIgnoreCase(t.to_user, strCurrentUser)) {
@@ -114,6 +115,8 @@ public class TransactionsFragment extends Fragment {
     }
 
     private void setTextTextColor(final TextView text, final String strSource) {
+        text.setTextColor(Color.parseColor("#000000"));
+
         if (getActivity() == null) {
             return;
         }
