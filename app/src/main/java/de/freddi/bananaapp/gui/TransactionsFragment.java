@@ -115,7 +115,7 @@ public class TransactionsFragment extends Fragment {
     }
 
     private void setTextTextColor(final TextView text, final String strSource) {
-        text.setTextColor(Color.parseColor("#000000"));
+        text.setTextColor(Color.BLACK);
 
         if (getActivity() == null) {
             return;
