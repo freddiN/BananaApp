@@ -33,6 +33,7 @@ public class Preferences {
         DEBUG_LOGGING("debug_logging"),
 
         OTHER_LIMIT_TRANSACTIONS("other_limit_transactions"),
+        OTHER_SORT_USERLIST("other_sort_userlist"),
 
         NOTIFICATIONS_SETTING("notifications_setting"),
         NOTIFICATIONS_TOPIC("notifications_topic"),

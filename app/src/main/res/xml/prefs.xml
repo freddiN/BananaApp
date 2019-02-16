@@ -108,6 +108,14 @@
             android:defaultValue="100"
             android:inputType="number"/>
 
+        <ListPreference
+            android:key="other_sort_userlist"
+            android:title="sort userlist"
+            android:summary="sort userlist by username or team"
+            android:entries="@array/sort_userlist"
+            android:entryValues="@array/sort_userlist"
+            android:defaultValue="username" />
+
         <Preference
             android:key="other_doze_intent"
             android:title="open battery saver configuration"

@@ -50,6 +50,9 @@ public class SettingsActivity extends PreferenceActivity {
             Preference httpPasswordPref = findPreference(PREF.CONNECTION_HTTP_PASS.value());
             httpPasswordPref.setOnPreferenceChangeListener(this);
 
+            Preference otherSortUserlist = findPreference(PREF.OTHER_SORT_USERLIST.value());
+            otherSortUserlist.setOnPreferenceChangeListener(this);
+
             // cacptue clicks on items
             Preference testNotificationStyle = findPreference("notifications_style_testbutton");
             testNotificationStyle.setOnPreferenceClickListener(preference -> {

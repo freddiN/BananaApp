@@ -14,4 +14,9 @@
         <item>Explore and nurture new opportunities</item>
         <item>Taking responsibility</item>
     </string-array>
+
+    <string-array name="sort_userlist">
+        <item>username</item>
+        <item>team</item>
+    </string-array>
 </resources>

@@ -21,6 +21,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -57,6 +59,19 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
             if (dbUsers != null && m_listAdapter != null) {
                 m_listUsers.clear();
                 m_listUsers.addAll(dbUsers);
+
+                final String strSortUserlist = new Preferences().getAsString(PREF.OTHER_SORT_USERLIST);
+                Collections.sort(m_listUsers, new Comparator<DBUser>() {
+                    @Override
+                    public int compare(final DBUser a, final DBUser b) {
+                        if (strSortUserlist.equalsIgnoreCase("team")) {
+                            return a.team_name.compareTo(b.team_name);
+                        } else {
+                            return a.display_name.compareTo(b.display_name);
+                        }
+                    }
+                });
+
                 m_listAdapter.notifyDataSetChanged();
                 L.log(LOGGING_TAG, "notifyDataSetChanged", iDebug);
             }
