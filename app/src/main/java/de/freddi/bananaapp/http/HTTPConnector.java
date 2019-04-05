@@ -145,7 +145,8 @@ public class HTTPConnector {
                     prefs.set(PREF.ACCOUNT_TOKEN_EXPIRATION, jsonUser.optString("token_expiration_timestamp"));
                     prefs.set(PREF.ACCOUNT_TOKEN_DURATION, jsonUser.optString("token_duration"));
                     prefs.set(PREF.ACCOUNT_IS_ADMIN, jsonUser.optString("is_admin"));
-                    prefs.set(PREF.ACCOUNT_AD_USER, jsonUser.optString("ad_user"));
+                    prefs.set(PREF.ACCOUNT_AD_USER_TT, jsonUser.optString("ad_user_tt"));
+                    prefs.set(PREF.ACCOUNT_AD_USER_AMA, jsonUser.optString("ad_user_ama"));
                     prefs.set(PREF.ACCOUNT_DISPLAYNAME, jsonUser.optString("display_name"));
                     prefs.set(PREF.ACCOUNT_ID, jsonUser.optString("id"));
                     prefs.set(PREF.ACCOUNT_BANANAS_TO_SPEND, jsonUser.optString("bananas_to_spend"));
@@ -214,7 +215,8 @@ public class HTTPConnector {
             prefs.set(PREF.ACCOUNT_TOKEN_EXPIRATION, "");
             prefs.set(PREF.ACCOUNT_TOKEN_DURATION, "");
             prefs.set(PREF.ACCOUNT_IS_ADMIN, "");
-            prefs.set(PREF.ACCOUNT_AD_USER, "");
+            prefs.set(PREF.ACCOUNT_AD_USER_TT, "");
+            prefs.set(PREF.ACCOUNT_AD_USER_AMA, "");
             prefs.set(PREF.ACCOUNT_DISPLAYNAME, "");
             prefs.set(PREF.ACCOUNT_ID, "");
             prefs.set(PREF.ACCOUNT_BANANAS_TO_SPEND, "");

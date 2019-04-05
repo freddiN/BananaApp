@@ -20,7 +20,8 @@ public class Preferences {
         ACCOUNT_BANANAS_RECEIVED("account_bananas_received"),
         ACCOUNT_BANANAS_TO_SPEND("account_bananas_to_spend"),
         ACCOUNT_IS_ADMIN("account_is_admin"),
-        ACCOUNT_AD_USER("account_ad_user"),
+        ACCOUNT_AD_USER_TT("account_ad_user_tt"),
+        ACCOUNT_AD_USER_AMA("account_ad_user_ama"),
         ACCOUNT_ID("account_id"),
         ACCOUNT_TEAM_NAME("team_name"),
 

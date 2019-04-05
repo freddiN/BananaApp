@@ -41,14 +41,15 @@ public class AccountFragment extends Fragment {
         buff.append(String.format(" Bananas received: %s %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_BANANAS_RECEIVED), GuiHelper.getEmojiByUnicode(nEmojiBanana)));
         buff.append("\n");
 
-        buff.append(String.format(" AD user: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_AD_USER)));
+        buff.append(String.format(" AD user TT: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_AD_USER_TT)));
+        buff.append(String.format(" AD user AMA: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_AD_USER_AMA)));
         buff.append(String.format(" Is admin: %s\n", "1".equalsIgnoreCase(prefs.getAsString(PREF.ACCOUNT_IS_ADMIN)) ? "yes":"no"));
         buff.append(String.format(" Userid: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_ID)));
         buff.append("\n");
 
         buff.append(String.format(" Token: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN)));
         buff.append(String.format(" Token expiration: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_EXPIRATION)));
-        buff.append(String.format(" Token duration: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_DURATION)));
+        buff.append(String.format(" Token duration: %s hours left\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_DURATION)));
 
         if (view == null && getView() != null) {
             ((TextView)getView().findViewById(R.id.id_account_text)).setText(buff.toString());
