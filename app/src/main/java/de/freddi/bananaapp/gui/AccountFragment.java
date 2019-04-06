@@ -49,7 +49,7 @@ public class AccountFragment extends Fragment {
 
         buff.append(String.format(" Token: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN)));
         buff.append(String.format(" Token expiration: %s\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_EXPIRATION)));
-        buff.append(String.format(" Token duration: %s hours left\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_DURATION)));
+        buff.append(String.format(" Token duration: %s hours\n", prefs.getAsStringEmptyIfNull(PREF.ACCOUNT_TOKEN_DURATION)));
 
         if (view == null && getView() != null) {
             ((TextView)getView().findViewById(R.id.id_account_text)).setText(buff.toString());
