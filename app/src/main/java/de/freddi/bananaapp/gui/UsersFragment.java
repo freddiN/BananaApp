@@ -60,7 +60,7 @@ public class UsersFragment extends Fragment implements AdapterView.OnItemClickLi
                 m_listUsers.clear();
                 m_listUsers.addAll(dbUsers);
 
-                final String strSortUserlist = new Preferences().getAsString(PREF.OTHER_SORT_USERLIST);
+                final String strSortUserlist = new Preferences().getAsStringEmptyIfNull(PREF.OTHER_SORT_USERLIST);
                 Collections.sort(m_listUsers, new Comparator<DBUser>() {
                     @Override
                     public int compare(final DBUser a, final DBUser b) {
