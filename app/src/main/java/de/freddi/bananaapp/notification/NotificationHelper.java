@@ -59,7 +59,7 @@ public class NotificationHelper {
             final Date dateToken = SDF.parse(strTokenExpiration);
             final Date dateNow = new Date();
             if (dateNow.compareTo(dateToken) > 0) {
-                L.log(LOGGING_TAG, "allowNotification token expiried", bIsDebugging);
+                L.log(LOGGING_TAG, "allowNotification token expired", bIsDebugging);
                 return false;
             }
         } catch (final ParseException e) {
