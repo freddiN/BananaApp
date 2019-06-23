@@ -13,6 +13,11 @@ import android.support.v4.app.NotificationCompat;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import de.freddi.bananaapp.MainActivity;
 import de.freddi.bananaapp.R;
 import de.freddi.bananaapp.logging.L;
@@ -22,6 +27,8 @@ import de.freddi.bananaapp.settings.Preferences.PREF;
 public class NotificationHelper {
     private static final String LOGGING_TAG = "NotificationHelper";
     private static final String NOTIFICATION_CHANNEL = "default_notification_channel";
+
+    private static final SimpleDateFormat SDF = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.GERMANY);
 
     /**
      * none, to me, all transactions
@@ -43,6 +50,20 @@ public class NotificationHelper {
         final String strNotificationTopic = prefs.getAsString(PREF.NOTIFICATIONS_TOPIC);
         if (StringUtils.length(strNotificationTopic) < 3 || strTopic == null || !strTopic.equals(strNotificationTopic)) {
             L.log(LOGGING_TAG, "allowNotification strNotificationTopic false", bIsDebugging);
+            return false;
+        }
+
+        final String strTokenExpiration = prefs.getAsString(PREF.ACCOUNT_TOKEN_EXPIRATION);
+        L.log(LOGGING_TAG, "allowNotification strTokenExpiration " + strTokenExpiration, bIsDebugging);
+        try {
+            final Date dateToken = SDF.parse(strTokenExpiration);
+            final Date dateNow = new Date();
+            if (dateNow.compareTo(dateToken) > 0) {
+                L.log(LOGGING_TAG, "allowNotification token expiried", bIsDebugging);
+                return false;
+            }
+        } catch (final ParseException e) {
+            L.log(LOGGING_TAG, "allowNotification error parsing date", bIsDebugging);
             return false;
         }
 
