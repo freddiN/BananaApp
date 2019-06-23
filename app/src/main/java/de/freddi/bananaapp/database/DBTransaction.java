@@ -1,8 +1,8 @@
 package de.freddi.bananaapp.database;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 
 @Entity(primaryKeys = {"from_user", "to_user", "timestamp"})
 public class DBTransaction {

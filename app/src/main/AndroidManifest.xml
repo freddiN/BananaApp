@@ -41,7 +41,8 @@
         </activity>
 
         <service
-            android:name=".notification.firebase.FirebaseReceiver">
+            android:name=".notification.firebase.FirebaseReceiver"
+            android:permission="">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

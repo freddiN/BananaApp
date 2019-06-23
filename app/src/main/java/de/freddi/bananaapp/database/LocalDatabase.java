@@ -1,7 +1,7 @@
 package de.freddi.bananaapp.database;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 @Database(entities = {DBUser.class, DBTransaction.class}, version = 3, exportSchema = false)
 public abstract class LocalDatabase extends RoomDatabase {

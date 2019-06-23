@@ -1,12 +1,13 @@
 package de.freddi.bananaapp.gui;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import de.freddi.bananaapp.R;
 import de.freddi.bananaapp.logging.L;
