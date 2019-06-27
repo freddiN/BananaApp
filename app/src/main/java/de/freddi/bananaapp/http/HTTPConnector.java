@@ -84,8 +84,10 @@ public class HTTPConnector {
         final Preferences prefs = new Preferences();
 
         JSONObject jsonTransaction = new JSONObject();
+
         try {
             jsonTransaction.put("limit", prefs.getAsString(Preferences.PREF.OTHER_LIMIT_TRANSACTIONS));
+            jsonTransaction.put("check_visibility", "true");
         } catch (final JSONException e) {
             if (prefs.isDebugLogging()) {
                 e.printStackTrace();
